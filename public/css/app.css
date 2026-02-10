@@ -1,0 +1,170 @@
+/* =========================
+   Variables
+========================= */
+:root {
+  --bg-app: #eff1f3;
+  --bg-content: #e4e7eb;
+
+  --color-primary: #546e7a;
+  --color-primary-hover: #435761;
+
+  --text-dark: #222;
+  --text-light: #fff;
+
+  --radius: 4px;
+}
+
+/* =========================
+   Reset
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================
+   Base
+========================= */
+body {
+  font-size: 18px;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  background: var(--bg-app);
+  color: var(--text-dark);
+}
+
+/* =========================
+   Layout
+========================= */
+.layout {
+  min-height: 100vh;
+  background: var(--bg-content);
+
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* =========================
+   Button / Link components
+========================= */
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: var(--radius);
+
+  background: var(--color-primary);
+  color: var(--text-light);
+
+  text-decoration: none;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--secondary {
+  width: 100%;
+  border-radius: 4px;
+}
+
+.btn-small {
+  width: 180px;
+}
+
+a {
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+a:active,
+a:visited,
+a:hover {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+/* =========================
+   Card
+========================= */
+.card {
+  background: white;
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.card--secondary {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.section-title {
+  margin-bottom: 16px;
+}
+
+.overview {
+  position: relative;
+  border-radius: none;
+  margin-top: 30px;
+}
+
+.overview-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.overview-header img {
+  position: absolute;
+  top: 16px;
+  width: 15px;
+  height: 15px;
+  margin-left: 15px;
+}
+
+/* =========================
+   Table
+========================= */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.table a {
+  color: var(--text-dark);
+}
+
+.table th {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ddd;
+  color: var(--text-dark);
+}
+
+.table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.table tbody tr {
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius);
+}
+
+.table tbody tr + tr {
+  margin-top: 8px;
+}

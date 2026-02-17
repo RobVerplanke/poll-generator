@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Poll extends Model {
 
+protected $fillable = ['label', 'ends_at'];
+
   // Get data of all open polls
   public static function active() {
     return self::where('ends_at', '>', now())->latest();
@@ -26,3 +28,4 @@ class Poll extends Model {
     return $this->hasMany(PollOption::class);
   }
 }
+

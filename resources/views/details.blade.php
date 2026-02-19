@@ -9,7 +9,7 @@
 
   <body>
     <p>Poll Details</p>
-    <a href={{ url('/create') }}>Home</a>
+    <a href={{ url('/') }}>Home</a>
   </body>
 
 </html>

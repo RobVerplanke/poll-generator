@@ -15,4 +15,4 @@ Route::post('/polls', [PollController::class, 'store'])->name('polls.store');
 Route::get('/polls/create', [PollController::class, 'create'])->name('polls.create');
 
 // Details - View with details of selected poll (active or closed)
-Route::get('/details/{id}', [PollController::class, 'show']);
+Route::get('/show/{id}', [PollController::class, 'show']);

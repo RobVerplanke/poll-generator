@@ -55,9 +55,15 @@ class PollController extends Controller
       
       $validated = $request->validate([
         'label' => 'required|min:5|max:50',
-        'options' => 'array|required|min:3',
+        'options' => 'array|required|min:2',
         'options.*' => 'required|string',
         'ends_at' => 'date'
+      ], [
+        // Personalized error messages 
+      ], [
+        'label' => 'title',
+        'ends_at' => 'end date',
+        'options.*' => 'poll option'
       ]);
 
       // Store poll as an object
@@ -73,7 +79,6 @@ class PollController extends Controller
           'poll_id' => $poll->id
           ]);
           }
-          dd('option saved');
     }
 
     /**

@@ -57,7 +57,8 @@
     <main class="layout">
 
       <header class="header">
-        <a class="btn btn--secondary btn-small" href="{{ route('polls.create') }}">Create new poll</a>
+        <button class="btn btn--secondary" onClick="window.location='{{ route('polls.create') }}'">Create new
+          poll</button>
       </header>
 
       <section class="card">
@@ -113,6 +114,7 @@
 
             {{-- Iterate through all open polls --}}
             @foreach ($openPolls as $openPoll)
+              {{-- <tr data-url="{{ route('poll.show', $poll->id) }}"> --}}
               <tr>
                 <td>{{ $openPoll->id }}</td>
                 <td>{{ $openPoll->label }}</td>
@@ -127,12 +129,12 @@
 
       <section class="overview">
         <div class="overview-header">
-          <div class="btn btn--secondary" onclick="toggleHistoryVisibility()">
+          <button type="button" class="btn btn--secondary" onclick="toggleHistoryVisibility()">
             Previous polls
             <svg class="sort-arrow sort-arrow--secondary">
               <use href="#arrow-down" />
             </svg>
-          </div>
+          </button>
         </div>
 
         <div class="overview-content hidden">

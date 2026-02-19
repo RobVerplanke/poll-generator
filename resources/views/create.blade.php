@@ -12,7 +12,7 @@
 
     <header>
       <p>Create new poll</p>
-      <a class="btn" href={{ url('/') }}>Back</a>
+      <button class="btn btn-small" onclick="window.location='{{ url('/') }}'">Back</button>
     </header>
 
     <main>
@@ -24,12 +24,12 @@
         {{-- Poll title --}}
         <div class="form-line">
           <label for="label">Title</label>
-          <input type="text" name ="label" id="label" placeholder="Title of poll...">
+          <input type="text" name ="label" id="label" placeholder="Title of poll..." value={{ old('label') }}>
         </div>
 
         {{-- Poll options --}}
         <div class="form-option-container"></div>
-        <button type="button" class="btn" onclick="addPollOptions()"> + </button>
+        <button type="button" class="btn btn-small" onclick="addPollOptions()"> + Add</button>
 
         {{-- Choose an end date --}}
         <div>
@@ -37,22 +37,28 @@
           <input type="date" name ="ends_at" id="ends_at">
         </div>
 
-        <button type="submit" class="btn">Submit</button>
-
         <div class="error">
 
           @if ($errors->any())
+            <p>Error:</p>
             @foreach ($errors->all() as $error)
-              <p>{{ $error }}</p>
+              <p>- {{ $error }}</p>
             @endforeach
           @endif
 
         </div>
 
+        <button type="submit" class="btn btn-secondary">Submit</button>
+
       </form>
     </main>
 
+    {{-- Remember old values, prevents value reset after submit with error(s) --}}
+    <script>
+      window.oldOptions = @json(old('options', []));
+    </script>
     <script src={{ asset('js/preloadOptions.js') }}></script>
+
   </body>
 
 </html>

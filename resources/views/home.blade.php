@@ -1,7 +1,13 @@
 @extends('layouts.default')
 
+@if (session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div>
+@endif
+
 @section('header')
-  <h1>- Poll generator -</h1>
+  <h2>- Poll generator -</h2>
 @endsection
 
 {{-- Arrow down SVG --}}

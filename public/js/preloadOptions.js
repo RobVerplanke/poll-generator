@@ -54,8 +54,8 @@ function addPollOptions(option, showRemoveBtn = true) {
 function preloadPollOptions() {
   const oldOptions = window.oldOptions || [];
 
+  // Load all old option values and remove buttons
   if (oldOptions.length > 0) {
-    // Load all old option values
     oldOptions.forEach((option, index) => {
       const showButton = index >= PRELOAD_OPTIONS;
       addPollOptions(option, showButton);

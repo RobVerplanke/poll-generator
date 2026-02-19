@@ -11,6 +11,7 @@
   --color-font-light: #fff;
   --color-font-dark: #222;
   --color-errortext: red;
+  --color-succestext: limegreen;
 
   --font-size-button: 18px;
   --radius: 4px;
@@ -218,4 +219,13 @@ form input {
 
 .error {
   color: var(--color-errortext);
+}
+
+/* =========================
+   Alert notifications
+========================= */
+
+.alert-success {
+  font-weight: 700;
+  background-color: var(--color-succestext);
 }

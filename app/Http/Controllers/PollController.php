@@ -78,7 +78,11 @@ class PollController extends Controller
           'text' => $option,
           'poll_id' => $poll->id
           ]);
-          }
+      }
+
+       return redirect()
+      ->route('home')
+      ->with('success', 'Poll successfully created!');
     }
 
     /**

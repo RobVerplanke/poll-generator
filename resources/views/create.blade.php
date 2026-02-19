@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
 @section('header')
-  <h1>- Create new poll -</h1>
+  <h2>- Create new poll -</h2>
   <button class="btn btn-small" onclick="window.location='{{ url('/') }}'">Back</button>
 @endsection
 
@@ -31,7 +31,7 @@
     <div class="error">
       @if ($errors->any())
         <p>Error:</p>
-        @foreach ($errors->all() as $error)
+        @foreach (array_unique($errors->all()) as $error)
           <p>- {{ $error }}</p>
         @endforeach
       @endif

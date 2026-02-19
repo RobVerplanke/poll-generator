@@ -33,7 +33,7 @@ function addPollOptions(option, showRemoveBtn = true) {
       <input type="text" name="options[]" id="option${optionCounter}" value="${option || ''}" placeholder="Poll option...">
     `;
 
-    // Create new substract button, only for addidional options
+    // Create substract button, only for addidional options
     if (showRemoveBtn) {
       let substractBtn = document.createElement('button');
       substractBtn.setAttribute('class', 'btn');
@@ -67,5 +67,7 @@ function preloadPollOptions() {
   }
 }
 
-// Execute on load
-preloadPollOptions();
+// Execute on load, after HTML is loaded
+document.addEventListener('DOMContentLoaded', function () {
+  preloadPollOptions();
+});

@@ -5,7 +5,6 @@
   <button class="btn btn-small" onclick="window.location='{{ url('/') }}'">Back</button>
 @endsection
 
-
 @section('maincontent')
   <form class="form-create" action="{{ route('polls.store') }}" method="POST">
 
@@ -25,7 +24,7 @@
     {{-- Choose an end date --}}
     <div>
       <label for="ends_at">End date</label>
-      <input type="date" name ="ends_at" id="ends_at">
+      <input type="date" name ="ends_at" id="ends_at" value={{ old('ends_at') }}>
     </div>
 
     {{-- Error messages --}}

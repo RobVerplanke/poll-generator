@@ -56,8 +56,9 @@ function preloadPollOptions() {
 
   if (oldOptions.length > 0) {
     // Load all old option values
-    oldOptions.forEach((option) => {
-      addPollOptions(option, false);
+    oldOptions.forEach((option, index) => {
+      const showButton = index >= PRELOAD_OPTIONS;
+      addPollOptions(option, showButton);
     });
   } else {
     // Add empty input fields

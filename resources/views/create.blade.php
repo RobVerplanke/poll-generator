@@ -38,7 +38,7 @@
     </div>
 
     {{-- Submit button --}}
-    <button type="submit" class="btn btn-secondary">Submit</button>
+    <button type="submit" class="btn">Submit</button>
 
   </form>
 @endsection
@@ -48,6 +48,6 @@
 <script>
   window.oldOptions = @json(old('options', []));
 </script>
-<script src={{ asset('js/preloadOptions.js') }}></script>
+<script src={{ asset('js/loadOptions.js') }}></script>
 
 </html>

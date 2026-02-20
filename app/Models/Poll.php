@@ -27,5 +27,9 @@ protected $fillable = ['label', 'ends_at'];
   public function pollOptions(): Hasmany {
     return $this->hasMany(PollOption::class);
   }
+
+  public function pollDetailsbyId() {
+    
+  }
 }
 

@@ -1,5 +1,6 @@
 @extends('layouts.default')
 
+{{-- Confirmation message after creating new poll succesfully --}}
 @if (session('success'))
   <div class="alert alert-success">
     {{ session('success') }}
@@ -108,8 +109,7 @@
 
         {{-- Iterate through all open polls --}}
         @foreach ($openPolls as $openPoll)
-          {{-- <tr data-url="{{ route('poll.show', $poll->id) }}"> --}}
-          <tr>
+          <tr class="clickable-row" data-href="{{ route('polls.vote', $openPoll->id) }}">
             <td>{{ $openPoll->id }}</td>
             <td>{{ $openPoll->label }}</td>
             <td>{{ $openPoll->totalVotes() }}</td>
@@ -123,17 +123,13 @@
 
   {{-- Overview of closed polls --}}
   <section class="overview">
-    <div class="overview-header">
-      <button type="button" class="btn btn--secondary" onclick="toggleHistoryVisibility()">
-        Previous polls
-        <svg class="sort-arrow sort-arrow--secondary">
-          <use href="#arrow-down" />
-        </svg>
-      </button>
-    </div>
-
-    <div class="overview-content hidden">
+    <div class="overview-content">
       <section class="card card--secondary">
+        <div class="section-title">
+          <h2>
+            Previous polls
+          </h2>
+        </div>
         <table class="table">
           <thead>
             <tr>
@@ -183,7 +179,7 @@
 
             {{-- Iterate through all closed polls --}}
             @foreach ($closedPolls as $closedPoll)
-              <tr>
+              <tr class="clickable-row" data-href="{{ route('polls.show', $closedPoll->id) }}">
                 <td>{{ $closedPoll->id }}</td>
                 <td>{{ $closedPoll->label }}</td>
                 <td>{{ $closedPoll->totalVotes() }}</td>
@@ -198,3 +194,14 @@
     </div>
   </section>
 @endsection
+
+{{-- Make rows in the tables clickable and link to the corresponding poll --}}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".clickable-row").forEach(row => {
+      row.addEventListener("click", function() {
+        window.location = this.dataset.href;
+      });
+    });
+  });
+</script>

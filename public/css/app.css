@@ -136,6 +136,10 @@ a:hover {
   color: var(--color-font-dark);
 }
 
+.table tr {
+  cursor: pointer;
+}
+
 .table th {
   text-align: left;
   padding: 8px;
@@ -212,7 +216,7 @@ a:hover {
   max-width: 700px;
 }
 
-form input {
+.form-create input {
   padding: 4px;
   min-width: 400px;
 }
@@ -228,4 +232,31 @@ form input {
 .alert-success {
   font-weight: 700;
   background-color: var(--color-succestext);
+}
+
+/* =========================
+   Result diagram
+========================= */
+
+#myChart {
+  max-width: 400px;
+  max-height: 300px;
+}
+
+/* =========================
+   Voting page
+========================= */
+
+.vote-options-container {
+  background-color: #ddd;
+}
+
+.vote-options-form {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vote-option input {
+  width: none;
 }

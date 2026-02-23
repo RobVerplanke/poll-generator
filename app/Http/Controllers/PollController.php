@@ -93,12 +93,21 @@ class PollController extends Controller
       return view('details', ['poll' => Poll::findOrFail($id)]);
     }
 
+    public function showVote(string $id){
+      return view('vote', ['poll' => Poll::findOrFail($id)]);
+    }
+
     /**
      * Go to the voting page for active polls.
      */
-    public function vote(Request $request, string $id)
+    public function submitVote(Request $request, string $id)
     {
-      return view('vote', ['poll' => Poll::findOrFail($id)]);
+      $selectedOption = $request->option;
+      $option = PollOption::findOrFail($selectedOption);
+      $option->votes_count++;
+      $option->save();
+
+      return redirect()->route('polls.show', $id);
     }
 
     /**

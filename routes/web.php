@@ -14,8 +14,11 @@ Route::post('/polls', [PollController::class, 'store'])->name('polls.store');
 // Create - Send new poll data to database
 Route::get('/polls/create', [PollController::class, 'create'])->name('polls.create');
 
+// Vote - Display votes of a poll
+Route::get('/poll/{id}/vote', [PollController::class, 'showVote'])->name('polls.vote');
+
 // Vote - Let the user make a vote
-Route::get('/poll/{id}/vote', [PollController::class, 'vote'])->name('polls.vote');
+Route::post('poll/{id}/vote', [PollController::class, 'submitVote'])->name('polls.submitVote');
 
 // Details - View with details of selected poll closed
 Route::get('/show/{id}', [PollController::class, 'show'])->name('polls.show');

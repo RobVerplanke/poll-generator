@@ -10,12 +10,15 @@
     <h2>{{ $poll->label }}</h2>
   </div>
 
-  <form class="vote-options-form">
+  <form class="vote-options-form" action="{{ route('polls.vote', $poll->id) }}" method="POST">
+
+    @csrf
+
     <fieldset>
 
       @foreach ($poll->pollOptions as $option)
         <div class="vote-option">
-          <input type="radio" name="option">
+          <input type="radio" name="option" value={{ $option->id }}>
           <label for="option">{{ $option->text }}</label>
           <hr>
         </div>
